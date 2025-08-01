@@ -1,0 +1,18 @@
+[project]
+name = "microshop"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Bonyjairs",email = "150530049+Bonyjairs@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "alembic (>=1.16.4,<2.0.0)",
+    "black (>=25.1.0,<26.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
