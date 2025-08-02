@@ -5,9 +5,9 @@ from typing import List, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from .product import Product
+    from .order_products_asossiete import OrderProductAssociation
 
 from .base import Base
-from .order_products_asossiete import order_product_association_table
 
 class Order(Base):
     
@@ -17,6 +17,11 @@ class Order(Base):
         default=datetime.now,
     )
     products: Mapped[List["Product"]] = relationship(
-        secondary=order_product_association_table,
+        secondary="order_product_association_table",
         back_populates="orders",
+        # lazy="noload",
+    )
+    
+    product_details: Mapped[List["OrderProductAssociation"]] = relationship(
+        back_populates="order",
     )
